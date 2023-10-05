@@ -18,3 +18,5 @@ wget 'https://r4.wallpaperflare.com/wallpaper/906/970/555/digital-art-eclipse-cl
 
 mkdir --parents $xfcePanelConfigDir
 cp $WD/xfce4-panel.xml $xfcePanelConfigDir/xfce4-panel.xml
+
+cp $WD/xinitrc ~/.xinitrc
