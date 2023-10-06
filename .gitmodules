@@ -3,4 +3,4 @@
 	url = https://git.suckless.org/dmenu
 [submodule "st"]
 	path = st
-	url = https://github.com/PhiYerion/st.git
+	url = https://github.com/PhiYerion/st

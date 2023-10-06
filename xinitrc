@@ -48,7 +48,6 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-xcompmgr &
-feh ~/Pictures/Wallpapers/wallpaper.jpg &
-xfce4-panel --disable-wm-check &
+picom --vsync-use-glfinish --log-file /home/user/picom.log --legacy-backends &
+feh --bg-fill /home/user/Pictures/wallpaper.jpg & 
 exec dwm
