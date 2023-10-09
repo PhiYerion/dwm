@@ -1,5 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 
+// For fn keys
+#include <X11/XF86keysym.h>
+
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -64,6 +67,15 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
+static const char *volumeLowerCmd[] = {"amixer", "set", "Master", "1%-"};
+static const char *volumeHigherCmd[] = {"amixer", "set", "Master", "1%+", "unmute"};
+static const char *volumeOffCmd[] = {"amixer", "set", "Master", "toggle"};
+
+static const char *playNextCmd[] = {"playerctl", "play-pause"};
+
+static const char *brightnessDownCmd[] = {"xbacklight", "-dec", "5" };
+static const char *brightnessUpCmd[] = {"xbacklight", "-inc", "5" };
+
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -101,6 +113,15 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+
+	// fn keys:
+	{ 0, XF86XK_AudioLowerVolume,	spawn,	{.v = volumeLowerCmd } },
+	{ 0, XF86XK_AudioRaiseVolume,	spawn,	{.v = volumeHigherCmd } },
+	{ 0, XF86XK_AudioMute,		spawn,	{.v = volumeOffCmd } },
+	{ 0, XF86XK_AudioPlay,		spawn,	{.v = playNextCmd } },
+	{ 0, XF86XK_MonBrightnessDown,	spawn,	{.v = brightnessDownCmd } },
+	{ 0, XF86XK_MonBrightnessUp,	spawn,	{.v = brightnessUpCmd } },
+
 };
 
 /* button definitions */
