@@ -67,8 +67,8 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
-static const char *volumeLowerCmd[] = {"amixer", "set", "Master", "1%-"};
-static const char *volumeHigherCmd[] = {"amixer", "set", "Master", "1%+", "unmute"};
+static const char *volumeLowerCmd[] = {"amixer", "set", "Master", "5%-"};
+static const char *volumeHigherCmd[] = {"amixer", "set", "Master", "5%+", "unmute"};
 static const char *volumeOffCmd[] = {"amixer", "set", "Master", "toggle"};
 
 static const char *playNextCmd[] = {"playerctl", "play-pause"};
